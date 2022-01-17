@@ -4,39 +4,34 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<center><h2>Employees</h2></center>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.first_name)
+            <center>First name</center>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.last_name)
+            <center>Last name</center>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            <center>E-mail</center>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.phone_number)
+            <center>Phone number</center>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hire_date)
+            <center>Hire date</center>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.salary)
+            <center>Salary</center>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.departments.department_name)
+            <center>Department</center>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.jobs.job_title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.employees2.first_name)
+            <center>Job title</center>
         </th>
         <th></th>
     </tr>
@@ -44,37 +39,34 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.first_name)
+            <center>@Html.DisplayFor(modelItem => item.first_name)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.last_name)
+            <center>@Html.DisplayFor(modelItem => item.last_name)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.email)
+            <center>@Html.DisplayFor(modelItem => item.email)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.phone_number)
+            <center>@Html.DisplayFor(modelItem => item.phone_number)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.hire_date)
+            <center>@Html.DisplayFor(modelItem => item.hire_date)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.salary)
+            <center>@Html.DisplayFor(modelItem => item.salary)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.departments.department_name)
+            <center>@Html.DisplayFor(modelItem => item.departments.department_name)</center>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.jobs.job_title)
+            <center>@Html.DisplayFor(modelItem => item.jobs.job_title)</center>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.employees2.first_name)
-        </td>
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.employee_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.employee_id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.employee_id })
-        </td>
+        </td>*@
     </tr>
 }
 
