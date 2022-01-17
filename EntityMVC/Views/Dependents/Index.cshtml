@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EntityMVC.Models.dependents>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+    <h2>Dependents</h2>
+</center>
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            <center>Fist name of a dependent</center>
+        </th>
+        <th>
+            <center>Last name of a dependent</center>
+        </th>
+        <th>
+            <center>Relationship</center>
+        </th>
+        <th>
+            <center>First name</center>
+        </th>
+        <th>
+            <center>Last name</center>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.first_name)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.last_name)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.relationship)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.employees.first_name)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.employees.last_name)</center>
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.dependent_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.dependent_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.dependent_id })
+        </td>*@
+    </tr>
+}
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityMVC.Models.jobs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center><h2>Jobs</h2></center>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            <center>Job Title</center>
+        </th>
+        <th>
+            <center>Min Salary</center>
+        </th>
+        <th>
+            <center>Max Salary</center>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.job_title)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.min_salary)</center>
+        </td>
+        <td>
+            <center>@Html.DisplayFor(modelItem => item.max_salary)</center>
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.job_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.job_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.job_id })
+        </td>*@
+    </tr>
+}
+
+</table>
