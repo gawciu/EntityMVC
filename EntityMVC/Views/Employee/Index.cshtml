@@ -5,7 +5,9 @@
 }
 
 <center><h2>Employees</h2></center>
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 
 <table class="table">
     <tr>
@@ -62,11 +64,11 @@
         <td>
             <center>@Html.DisplayFor(modelItem => item.jobs.job_title)</center>
         </td>
-        @*<td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.employee_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.employee_id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.employee_id })
-        </td>*@
+            @Html.ActionLink("DetailsWithId", "DetailsWithId", new { id = item.employee_id });
+        </td>
     </tr>
 }
 

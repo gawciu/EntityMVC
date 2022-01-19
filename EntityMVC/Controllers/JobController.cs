@@ -10,10 +10,26 @@ namespace EntityMVC.Controllers
     public class JobController : Controller
     {
         // GET: Job
+        EmployeesEntities job = new EmployeesEntities();
         public ActionResult Index()
         {
-            var job = new EmployeesEntities();
+           
             return View(job.jobs.ToList());
         }
+
+        //public ActionResult Create(jobs Job)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        job.jobs.Add(Job);
+        //        job.SaveChanges();
+        //        return RedirectToAction("Idex");
+        //    }
+
+        //    return View();
+        //}
+
+       
+        
     }
 }

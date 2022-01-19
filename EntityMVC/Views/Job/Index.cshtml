@@ -6,9 +6,9 @@
 
 <center><h2>Jobs</h2></center>
 
-@*<p>
+<p>
     @Html.ActionLink("Create New", "Create")
-</p>*@
+</p>
 <table class="table">
     <tr>
         <th>
@@ -34,11 +34,11 @@
         <td>
             <center>@Html.DisplayFor(modelItem => item.max_salary)</center>
         </td>
-        @*<td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.job_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.job_id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.job_id })
-        </td>*@
+        </td>
     </tr>
 }
 

@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\DTO\Request\Employees\CreateEmployeeDTO.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DependentsController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -231,9 +232,12 @@
     <Content Include="Views\Departments\Index.cshtml" />
     <Content Include="Views\Dependents\Index.cshtml" />
     <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Common\DTO\Response\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
