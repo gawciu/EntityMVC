@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,6 +12,7 @@ namespace EntityMVC.Controllers
     {
         // GET: Job
         EmployeesEntities job = new EmployeesEntities();
+         
         public ActionResult Index()
         {
 
@@ -25,11 +27,28 @@ namespace EntityMVC.Controllers
         public ActionResult DetailsWithId(int id)
         {
             var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
-            if(data == null)
+            if (data == null)
             {
                 HttpNotFound();
             }
             return RedirectToAction("Details", data); 
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
+            if (data == null)
+            {
+                HttpNotFound();
+            }
+            return View(data);
+        }
+        [HttpPost, ActionName("Edit")]
+        public ActionResult EditConfirmed(jobs model)
+        {
+            job.Entry(model).State = EntityState.Modified;
+            job.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         
