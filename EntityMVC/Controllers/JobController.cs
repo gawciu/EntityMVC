@@ -13,23 +13,29 @@ namespace EntityMVC.Controllers
         EmployeesEntities job = new EmployeesEntities();
         public ActionResult Index()
         {
-           
+
             return View(job.jobs.ToList());
         }
 
-        //public ActionResult Create(jobs Job)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        job.jobs.Add(Job);
-        //        job.SaveChanges();
-        //        return RedirectToAction("Idex");
-        //    }
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult Create(jobs Job)
+        {
+            if (ModelState.IsValid)
+            {
+                job.jobs.Add(Job);
+                job.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-       
-        
+            return View();
+        }
+
+
+
     }
 }

@@ -28,7 +28,6 @@ namespace EntityMVC.Controllers
         {
             //get by id from db and map to dto model for view
             CreateEmployeeDTO dto = new CreateEmployeeDTO();
-            dto.FirstName = "DUPA 123";
             return RedirectToAction("Details", dto);
         }
 
