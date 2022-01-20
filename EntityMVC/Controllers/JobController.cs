@@ -11,7 +11,7 @@ namespace EntityMVC.Controllers
     public class JobController : Controller
     {
         // GET: Job
-        EmployeesEntities job = new EmployeesEntities();
+        readonly EmployeesEntities job = new EmployeesEntities();
          
         public ActionResult Index()
         {
@@ -27,20 +27,14 @@ namespace EntityMVC.Controllers
         public ActionResult DetailsWithId(int id)
         {
             var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
-            if (data == null)
-            {
-                HttpNotFound();
-            }
+           
             return RedirectToAction("Details", data); 
         }
 
         public ActionResult Edit(int id)
         {
             var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
-            if (data == null)
-            {
-                HttpNotFound();
-            }
+            
             return View(data);
         }
         [HttpPost, ActionName("Edit")]
@@ -77,7 +71,6 @@ namespace EntityMVC.Controllers
             {
                 job.jobs.Add(Job);
                 job.SaveChanges();
-               // return RedirectToAction("Details", Job);
             }
 
             return RedirectToAction("Index");
