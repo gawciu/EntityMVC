@@ -27,8 +27,6 @@ namespace EntityMVC.Controllers
         public ActionResult DetailsWithId (int id)
         {
             var data = entities.employees.Where(p => p.employee_id == id).FirstOrDefault();
-
-            CreateEmployeeDTO dto = new CreateEmployeeDTO(data);
             return RedirectToAction("Details", data);
         }
 
@@ -68,7 +66,8 @@ namespace EntityMVC.Controllers
                     entities.employees.Add(dbModel);
                     entities.SaveChanges();
                     employeeDto.Id = dbModel.employee_id;
-                    return View("Index");
+                    
+                    return RedirectToAction("DetailsWithId", new { id = employeeDto.Id }) ;
                 }
             }
             catch (DbEntityValidationException ex)

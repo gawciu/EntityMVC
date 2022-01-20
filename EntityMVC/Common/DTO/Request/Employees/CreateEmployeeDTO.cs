@@ -22,20 +22,6 @@ namespace EntityMVC.Common.DTO.Request.Employees
         public int JobId { get; set; }
         public decimal Salary { get; set; }
 
-        public CreateEmployeeDTO(employees model)
-        {
-            Id = model.employee_id;
-            FirstName = model.first_name;
-            LastName = model.last_name;
-            Email = model.email;
-            PhoneNumber = model.phone_number;
-            HireDate = model.hire_date;
-            JobId = model.job_id;
-            Salary = model.salary;
-        }
-        public CreateEmployeeDTO()
-        {
-
-        }
+       
     }
 }
