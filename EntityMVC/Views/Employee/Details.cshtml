@@ -1,8 +1,84 @@
-﻿@model EntityMVC.Common.DTO.Request.Employees.CreateEmployeeDTO
+﻿@model EntityMVC.Models.employees
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.FirstName</h2>
+<h2>Details</h2>
 
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first_name)
+        </dd>
+
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_name)
+        </dd>
+
+        <dt>
+            E-Mail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Phone number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone_number)
+        </dd>
+
+        <dt>
+            Hire Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hire_date)
+        </dd>
+
+        <dt>
+            Salary
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salary)
+        </dd>
+
+        <dt>
+            Department name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.departments.department_name)
+        </dd>
+
+        <dt>
+            Job title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jobs.job_title)
+        </dd>
+
+      
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

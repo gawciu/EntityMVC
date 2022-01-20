@@ -26,12 +26,13 @@ namespace EntityMVC.Controllers
                 
         public ActionResult DetailsWithId (int id)
         {
-            //get by id from db and map to dto model for view
-            CreateEmployeeDTO dto = new CreateEmployeeDTO();
-            return RedirectToAction("Details", dto);
+            var data = entities.employees.Where(p => p.employee_id == id).FirstOrDefault();
+
+            CreateEmployeeDTO dto = new CreateEmployeeDTO(data);
+            return RedirectToAction("Details", data);
         }
 
-        public ActionResult Details(CreateEmployeeDTO model)
+        public ActionResult Details(employees model)
         {
             return View(model);
         }
@@ -39,7 +40,7 @@ namespace EntityMVC.Controllers
         public ActionResult Create()
         {
             var jobs = entities.jobs.Select(p => new SelectListItem { Text = p.job_title, Value = p.job_id.ToString() }).ToList();
-           
+
             CreateEmployeeDTO model = new CreateEmployeeDTO { JobsDropdown = jobs};
             return View(model);
         }
@@ -67,7 +68,7 @@ namespace EntityMVC.Controllers
                     entities.employees.Add(dbModel);
                     entities.SaveChanges();
                     employeeDto.Id = dbModel.employee_id;
-                    return RedirectToAction("Details", employeeDto);
+                    return View("Index");
                 }
             }
             catch (DbEntityValidationException ex)
