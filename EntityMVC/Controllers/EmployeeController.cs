@@ -14,11 +14,7 @@ namespace EntityMVC.Controllers
         // GET: Employee
         EmployeesEntities entities = new EmployeesEntities();
         
-        public EmployeeController()
-        {
-            
-
-        }
+       
         public ActionResult Index()
         {
             return View(entities.employees.ToList());
@@ -27,6 +23,10 @@ namespace EntityMVC.Controllers
         public ActionResult DetailsWithId (int id)
         {
             var data = entities.employees.Where(p => p.employee_id == id).FirstOrDefault();
+            if (data == null)
+            {
+                HttpNotFound();
+            }
             return RedirectToAction("Details", data);
         }
 

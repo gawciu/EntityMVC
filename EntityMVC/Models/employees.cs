@@ -11,7 +11,7 @@ namespace EntityMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class employees
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,6 +24,7 @@ namespace EntityMVC.Models
         public int employee_id { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
+
         public string email { get; set; }
         public string phone_number { get; set; }
         public System.DateTime hire_date { get; set; }

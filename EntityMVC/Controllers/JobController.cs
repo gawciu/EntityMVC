@@ -21,7 +21,7 @@ namespace EntityMVC.Controllers
         {
             return View(Job);
         }
-        [HttpGet]
+       
         public ActionResult DetailsWithId(int id)
         {
             var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
@@ -29,9 +29,23 @@ namespace EntityMVC.Controllers
             {
                 HttpNotFound();
             }
-            return RedirectToAction("Details", data);
+            return RedirectToAction("Details", data); 
         }
 
+        
+        public ActionResult Delete(int id)
+        {
+            var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
+            return View(data);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
+            job.jobs.Remove(data);
+            job.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public ActionResult Create()
         {
             return View();
@@ -44,10 +58,10 @@ namespace EntityMVC.Controllers
             {
                 job.jobs.Add(Job);
                 job.SaveChanges();
-                return RedirectToAction("Details", Job);
+               // return RedirectToAction("Details", Job);
             }
 
-            return View(Job);
+            return RedirectToAction("Index");
         }
 
 
