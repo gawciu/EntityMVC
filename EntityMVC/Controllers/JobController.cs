@@ -17,6 +17,21 @@ namespace EntityMVC.Controllers
             return View(job.jobs.ToList());
         }
 
+        public ActionResult Details(jobs Job)
+        {
+            return View(Job);
+        }
+        [HttpGet]
+        public ActionResult DetailsWithId(int id)
+        {
+            var data = job.jobs.Where(p => p.job_id == id).FirstOrDefault();
+            if(data == null)
+            {
+                HttpNotFound();
+            }
+            return RedirectToAction("Details", data);
+        }
+
         public ActionResult Create()
         {
             return View();
@@ -29,10 +44,10 @@ namespace EntityMVC.Controllers
             {
                 job.jobs.Add(Job);
                 job.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", Job);
             }
 
-            return View();
+            return View(Job);
         }
 
 

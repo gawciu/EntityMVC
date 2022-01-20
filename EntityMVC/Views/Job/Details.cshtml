@@ -1,0 +1,42 @@
+﻿@model EntityMVC.Models.jobs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>jobs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Job Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_title)
+        </dd>
+
+        <dt>
+            Min salary
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.min_salary)
+        </dd>
+
+        <dt>
+            Max salary
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.max_salary)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>
