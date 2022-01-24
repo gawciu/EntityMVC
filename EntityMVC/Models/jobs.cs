@@ -11,7 +11,8 @@ namespace EntityMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class jobs
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,19 @@ namespace EntityMVC.Models
         }
     
         public int job_id { get; set; }
+        [StringLength(20)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please,use only alphabet characters")]
+        [Required]
         public string job_title { get; set; }
+
+        [Range(0, 100000, ErrorMessage = "Only numbers to 100K")]
+        [Required]
+
         public Nullable<decimal> min_salary { get; set; }
+
+        [Range(0, 100000, ErrorMessage = "Only numbers to 100K")]
+        [Required]
+
         public Nullable<decimal> max_salary { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

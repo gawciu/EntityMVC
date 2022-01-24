@@ -7,23 +7,9 @@ using EntityMVC.Models;
 
 namespace EntityMVC.Common.DTO.Request.Employees
 {
-    public class EditEmployeeDTO
+    public class EditEmployeeDTO : CreateEmployeeDTO
     {
-        //Needed to view 
-        public List<SelectListItem> JobsDropdown { get; set; }
-        public List<SelectListItem> DepartmentIdDropdown { get; set; }
-
-        //Needed to save
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int? DepartmentId { get; set; }
-        public int? ManagerId { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public DateTime HireDate { get; set; }
-        public int JobId { get; set; }
-        public decimal Salary { get; set; }
+       
 
         public EditEmployeeDTO(employees model)
         {

@@ -60,7 +60,9 @@ namespace EntityMVC.Controllers
                     phone_number = employeeDto.PhoneNumber,
                     hire_date = employeeDto.HireDate,
                     job_id = employeeDto.JobId,
-                    salary = employeeDto.Salary
+                    salary = employeeDto.Salary,
+                    department_id = employeeDto.DepartmentId
+
 
                 };
                 entities.employees.Add(dbModel);
